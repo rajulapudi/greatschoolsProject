@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>School Registration</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width,
+            initial-scale=1,
+            shrink-to-fit=no" name="viewport">
+    <!--Font Awesome  -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-md-8">
+                <div class="container">
+                    <header>
+                        <h1>School Registration Form</h1>
+                    </header>
+                </div>
+                <div class="container">
+                    <p>Please fill out this form
+                        for registration of your
+                        school
+                    </p>
+                </div>
+                <div class="container">
+                    <form action="/school/register" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">School Name</label>
+                                <input class="form-control" id="inputEmail4" placeholder="School" type="text"
+                                    name="School_Name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="type">School Type</label>
+                                <select class="form-control" id="sel1">
+                                    <option>Select Option</option>
+                                    <option>Government</option>
+                                    <option>Private</option>
+                                    <option>International</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                                <label for="inputAddress">
+                                    Address</label>
+                                <input class="form-control" id="inputAddress"
+                                    placeholder="street, place, city name & state" type="text" name="Address">
+                        </div>
+                        <div class="form-row">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <legend class="col-form-label col-sm-2
+                                        pt-0">
+                                        Levels: </legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Pre-Primary - Nursery, LKG &
+                                                UKG
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Primary Education - grades 1-8
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Secondary Education - grades 9
+                                                & 10
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Senior Secondary Education -
+                                                grades 11 & 12
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="type">Cirriculum</label>
+                                <select class="form-control" id="sel1">
+                                    <option>Select Option</option>
+                                    <option>CBSE</option>
+                                    <option>ICSE</option>
+                                    <option>STATE</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Contact Details</label>
+                                <input class="form-control" id="inputEmail4" placeholder="Email & Phone" type="text"
+                                    name="Contact">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then
+        Popper.js, then Bootstrap JS
+        -->
+    <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
