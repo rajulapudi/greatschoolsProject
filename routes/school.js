@@ -3,6 +3,7 @@ const router = express.Router();
 const Schools = require('../models/schools.js');
 const bodyParser = require('body-parser');
 
+
 // parse application/x-www-form-urlencoded
 router.use(bodyParser.urlencoded({ extended: false }))
  
@@ -10,11 +11,11 @@ router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json())
 
 /* Route for /school */
+router.use(express.static('views'))
 router.get('/',(req,res)=>{
     Schools.find({},(err, content)=>{
         if(err){console.log(err)}
-        else{
-            res.json(content)
+        else{res.render('index.ejs', {content})
         }
     })
 })
