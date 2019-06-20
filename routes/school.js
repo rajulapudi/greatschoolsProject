@@ -1,6 +1,8 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 const Schools = require('../models/schools.js');
+const Login = require('../models/login.js');
 const bodyParser = require('body-parser');
 
 
@@ -49,6 +51,28 @@ router.post('/register', (req,res)=>{
 
 /* Route for /school/login */
 router.use('/login', express.static('./views/school_login.html'))
+
+router.post('/login', (req,res)=>{
+    let email = req.body.email;
+    let password = req.body.password;
+    console.log(email, password);
+    const saltRounds = 10;
+/* encrypting the password */
+    bcrypt.hash(password, saltRounds, function(err, hash) {
+        if (!err){
+            var login = new Login({
+            "email": email,
+            "password": password,
+            "encrypted": hash
+        })
+        console.log(hash)
+            login.save((err)=>{
+                if (err) {console.log(err)}
+            })
+    }});
+        res.send('login credentials created')
+
+})
 
 /* Route for /school/unsubscribe */
 router.use('/unsubscribe', express.static('./views/school_unsubscribe.html'))
