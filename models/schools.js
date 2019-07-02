@@ -4,9 +4,9 @@ var Schema = mongoose.Schema;
 
 var schoolSchema = new Schema({
 
-"Address": String,
-"Contact": String,
-"School_Name": String
+"Address": {type:String},
+"Contact": {type:String},
+"School_Name": {type:String}
 
 });
 

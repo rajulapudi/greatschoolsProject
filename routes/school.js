@@ -82,7 +82,9 @@ router.use('/signup', express.static('./views/school_signup.html'))
 router.post('/signup', (req, res) => {
     let email = req.body.email;
     let password = req.body.password;
-    console.log(email, password);
+    let confirmpassword = req.body.confirmpassword;
+    let phone = req.body.phone;
+    console.log(email, password, confirmpassword, phone);
     const saltRounds = 10;
 
     /* encrypting the password -- USING ASYNC FUNCTION CALL BACKS*/
@@ -113,16 +115,18 @@ router.post('/signup', (req, res) => {
     }) */
 
     /*   ------- USING PROMISES -----------*/
-    /*     bcrypt.hash(password, saltRounds).then(function(hash) {
+    bcrypt.hash(password, saltRounds).then(function(hash) {
             var login = new Login({
                 "email": email,
                 "password": password,
+                "phone":phone,
+                "confirmpassword":confirmpassword,
                 "encrypted": hash
             })
             login.save((err)=>{
                 if (err) {console.log(err)}
         })
-    }) */
+    })
 
 
     res.send('Signed Up!')
