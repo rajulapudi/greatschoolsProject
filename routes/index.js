@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req,res)=>{
-res.send('<h1>hello I am Home Page</h1>')
+router.use('/', (req,res)=>{
+res.render('homePage.ejs')
 })
 
 router.use('/school', require('./school.js'))
