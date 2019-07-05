@@ -5,9 +5,9 @@ const Schools = require('../models/schools.js');
 const Login = require('../models/login.js');
 const bodyParser = require('body-parser');
 
-// parse application/x-www-form-urlencoded
+
+
 router.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
 router.use(bodyParser.json())
 
 /* Route for /school - home page */
@@ -77,59 +77,37 @@ router.post('/login', (req, res) => {
 
 /* Route for Sign-Up */
 
-router.use('/signup', express.static('./views/school_signup.html'))
+router.use('/signup', express.static('views/school_signup.html'))
 
 router.post('/signup', (req, res) => {
     let email = req.body.email;
+    let name = req.body.fname;
+    let address = req.body.address;
     let password = req.body.password;
     let confirmpassword = req.body.confirmpassword;
     let phone = req.body.phone;
-    console.log(email, password, confirmpassword, phone);
+    //console.log(email, password, confirmpassword, phone,name, address );
     const saltRounds = 10;
-
-    /* encrypting the password -- USING ASYNC FUNCTION CALL BACKS*/
-    /*     bcrypt.hash(password, saltRounds, function(err, hash) {
-            if (!err){
-                var login = new Login({
-                "email": email,
-                "password": password,
-                "encrypted": hash
-            })
-            console.log(hash)
-                login.save((err)=>{
-                    if (err) {console.log(err)}
-                })
-        }}); */
-
-    /* encrypting the password -- USING SYNC FUNCTIONS */
-
-    /* var hash = bcrypt.hashSync(password, saltRounds);
-
-    var login = new Login({
-        "email": email,
-        "password": password,
-        "encrypted": hash
-    })
-    login.save((err)=>{
-        if (err) {console.log(err)}
-    }) */
-
-    /*   ------- USING PROMISES -----------*/
+    
+   if(confirmpassword==password){
     bcrypt.hash(password, saltRounds).then(function(hash) {
-            var login = new Login({
-                "email": email,
-                "password": password,
-                "phone":phone,
-                "confirmpassword":confirmpassword,
-                "encrypted": hash
-            })
-            login.save((err)=>{
-                if (err) {console.log(err)}
+        var login = new Login({
+            "name": name,
+            "address": address,
+            "email": email,
+            "password": hash,
+            "phone":phone,
         })
+        
+        login.save((err)=>{
+            if (err) {console.log(err)}
     })
+})
 
-
-    res.send('Signed Up!')
+res.send('Signed Up!')
+   }else{
+       res.send('TODO passwords do not match')
+   }
 
 })
 
