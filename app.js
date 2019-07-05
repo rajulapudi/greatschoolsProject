@@ -9,6 +9,10 @@ const app = express();
 /* Routes - use the below folder for handling routes and router */
 app.use(require('./routes'))
 
+/* app.get('/',(req,res)=>{
+    res.render('Home')
+}) */
+
 /* Middleware */
 app.set('views', './views')
 app.set('view engine', ejs);

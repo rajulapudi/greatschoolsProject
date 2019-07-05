@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 
-router.use('/',express.static('./views/home.html'))
+router.get('/',(req,res)=>{
+    res.render('homePage.ejs')
+})
 
 router.use('/school', require('./school.js'))
 
